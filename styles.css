@@ -8,10 +8,18 @@
   border: none;
   outline: none;
   margin: 0;
+  box-sizing: border-box;
   font-family: "Manrope", sans-serif;
 }
 
 body {
   opacity: 0;
-  transition: 0.3s;
+  transition: 0.4s;
+  min-height: 1000px;
+  background: white;
+  overflow: hidden;
+}
+
+body #content {
+  overflow: hidden;
 }

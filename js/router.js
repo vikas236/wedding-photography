@@ -6,8 +6,6 @@ function handleHashChange() {
 
 // Function to load page content based on the hash path
 function loadPage(path) {
-  const body = document.querySelector("body");
-  body.style.opacity = 1;
   const container = document.getElementById("content");
   const request = new XMLHttpRequest();
   if (path == "") path = "home";
@@ -23,6 +21,10 @@ function loadPage(path) {
       container.innerHTML = "Page not found";
     }
   };
+  const body = document.querySelector("body");
+  setTimeout(() => {
+    body.style.opacity = 1;
+  }, 100);
   request.send();
 }
 
