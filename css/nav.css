@@ -10,6 +10,7 @@ nav {
   justify-content: space-around;
   position: fixed;
   inset: 0;
+  z-index: 5;
 }
 
 nav .wrapper {
@@ -27,6 +28,8 @@ nav .social_links {
 nav .social_links i {
   color: white;
   margin: 0 7px;
+  cursor: pointer;
+  box-shadow: 0px 0px 10px rgba(117, 115, 105, 0.17);
 }
 
 nav .logo {
@@ -34,6 +37,7 @@ nav .logo {
   font-size: 54px;
   font-weight: 400;
   color: white;
+  text-shadow: 0px 0px 10px rgba(117, 115, 105, 1);
 }
 
 nav button {
@@ -43,6 +47,7 @@ nav button {
   padding: 11px 25px;
   border-radius: 5px;
   font-size: 15px;
+  cursor: pointer;
 }
 
 nav button i {
@@ -62,6 +67,7 @@ nav > .nav_links span {
   cursor: pointer;
   overflow: hidden;
   padding-bottom: 5px;
+  text-shadow: 0px 0px 10px rgba(117, 115, 105, 0.07);
 }
 
 nav > .nav_links span::before,
@@ -141,7 +147,7 @@ nav > .nav_links span:hover::after {
   position: fixed;
   left: 0;
   bottom: -100vh;
-  z-index: 2;
+  z-index: 5;
   background: transparent;
   opacity: 0;
   transition: opacity 0.3s, background 0.3s, bottom 0.3s linear 0.3s;
@@ -161,7 +167,7 @@ nav > .nav_links span:hover::after {
   display: flex;
   justify-content: space-between;
   align-items: start;
-  padding: 225px 50px;
+  padding: 250px 50px;
   padding-bottom: 50px;
   transition: 0.5s;
   opacity: 0;
@@ -245,6 +251,14 @@ nav > .nav_links span:hover::after {
   color: white;
 }
 
+.sidebar .address h1 {
+  margin-bottom: 5px;
+}
+
+.sidebar .address span {
+  display: block;
+}
+
 .sidebar .social_links {
   display: flex;
   margin-top: 50px;
@@ -295,14 +309,41 @@ nav > .nav_links span:hover::after {
 }
 
 @media screen and (max-width: 856px) {
+  nav .ham {
+    left: 25px;
+  }
+
   .sidebar .wrapper {
     flex-direction: column;
-    padding: 125px 35px;
+    padding: 175px 25px;
+  }
+
+  .sidebar.active .wrapper {
+    padding: 125px 25px;
+  }
+
+  .sidebar .wrapper .right {
+    width: 75%;
   }
 
   .ham.closed {
     position: relative;
     top: -75px;
     left: 0;
+  }
+}
+
+@media screen and (max-width: 656px) {
+  nav .ham {
+    left: 15px;
+  }
+
+  .sidebar .wrapper {
+    flex-direction: column;
+    padding: 175px 15px;
+  }
+
+  .sidebar.active .wrapper {
+    padding: 125px 15px;
   }
 }

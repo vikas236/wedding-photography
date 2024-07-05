@@ -1,3 +1,5 @@
+import homeW from "./home.js";
+
 // Function to handle routing based on hash change
 function handleHashChange() {
   const path = window.location.hash.substring(1); // Remove the '#' symbol
@@ -14,7 +16,7 @@ function loadPage(path) {
     if (request.status === 200) {
       container.innerHTML = request.responseText;
       navLinks(path);
-      // if (path == "home") homeW();
+      if (path == "home") homeW();
       // else {
       // }
     } else {
