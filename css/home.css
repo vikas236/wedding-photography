@@ -133,6 +133,10 @@
 }
 
 @media screen and (max-width: 400px) {
+  .slide .content {
+    padding: 0 25px;
+  }
+
   .slide h1 {
     font-size: 36px;
   }
