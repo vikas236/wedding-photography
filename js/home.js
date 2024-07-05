@@ -6,13 +6,9 @@ function homeW() {
     let slide_no = 0;
     let timer = 0;
 
-    left_btn.addEventListener("click", () => {
-      moveSlider("left");
-    });
+    left_btn.addEventListener("click", () => moveSlider("left"));
 
-    right_btn.addEventListener("click", () => {
-      moveSlider("right");
-    });
+    right_btn.addEventListener("click", () => moveSlider("right"));
 
     function moveSlider(direction) {
       slides.forEach((e) => {
@@ -31,10 +27,10 @@ function homeW() {
       slides[slide_no].classList.add("active");
     }
 
-    // setInterval(() => {
-    //   timer++;
-    //   if (timer == 6) moveSlider("right");
-    // }, 1000);
+    setInterval(() => {
+      timer++;
+      if (timer == 6) moveSlider("right");
+    }, 1000);
   }
   slideAnimation();
 }
