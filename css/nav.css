@@ -106,6 +106,8 @@ nav > .nav_links span:hover::after {
   align-items: center;
   justify-content: center;
   display: none;
+  cursor: pointer;
+  z-index: 1;
 }
 
 .ham .bar,
@@ -116,6 +118,8 @@ nav > .nav_links span:hover::after {
   height: 2px;
   background: white;
   position: relative;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 .ham .bar::before {
@@ -134,12 +138,20 @@ nav > .nav_links span:hover::after {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  position: absolute;
-  inset: 0;
+  position: fixed;
+  left: 0;
+  bottom: -100vh;
+  z-index: 2;
+  background: transparent;
+  opacity: 0;
+  transition: opacity 0.3s, background 0.3s, bottom 0.3s linear 0.3s;
+}
+
+.sidebar.active {
+  bottom: 0;
+  opacity: 1;
   background: black;
-  display: flex;
-  padding: 100px 50px;
-  padding-bottom: 50px;
+  transition: opacity 0.5s, background 0.5s;
 }
 
 .sidebar .wrapper {
@@ -147,14 +159,30 @@ nav > .nav_links span:hover::after {
   height: 100%;
   overflow: scroll;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: start;
+  padding: 225px 50px;
+  padding-bottom: 50px;
+  transition: 0.5s;
+  opacity: 0;
+  transition-delay: 0.7s;
+}
+
+.sidebar.active .wrapper {
+  padding-top: 175px;
+  opacity: 1;
+  transition-delay: 0s;
 }
 
 .ham.closed {
+  width: 50px;
+  height: 50px;
   background: white;
   border-radius: 50%;
-  left: 35px;
+  top: 25px;
+  left: 50px;
+  position: absolute;
+  padding: 25px 0;
 }
 
 .ham.closed .bar,
@@ -190,8 +218,9 @@ nav > .nav_links span:hover::after {
   font-size: 48px;
   display: block;
   font-weight: 800;
-  padding-bottom: 10px;
+  margin-bottom: 10px;
   position: relative;
+  cursor: pointer;
 }
 
 .sidebar .nav_links span.active {
@@ -209,10 +238,21 @@ nav > .nav_links span:hover::after {
   width: 50%;
   display: flex;
   flex-direction: column;
+  padding-top: 20px;
 }
 
 .sidebar .address {
   color: white;
+}
+
+.sidebar .social_links {
+  display: flex;
+  margin-top: 50px;
+}
+
+.sidebar .social_links i {
+  color: white;
+  font-size: 24px;
 }
 
 @media screen and (max-width: 1400px) {
@@ -226,7 +266,7 @@ nav > .nav_links span:hover::after {
 }
 
 @media screen and (max-width: 1025px) {
-  nav .ham {
+  .ham {
     display: flex;
     left: 45px;
     top: 23px;
@@ -251,5 +291,18 @@ nav > .nav_links span:hover::after {
 
   nav > .nav_links {
     display: none;
+  }
+}
+
+@media screen and (max-width: 856px) {
+  .sidebar .wrapper {
+    flex-direction: column;
+    padding: 125px 35px;
+  }
+
+  .ham.closed {
+    position: relative;
+    top: -75px;
+    left: 0;
   }
 }
