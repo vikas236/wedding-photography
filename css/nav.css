@@ -185,7 +185,7 @@ nav > .nav_links span:hover::after {
   height: 50px;
   background: white;
   border-radius: 50%;
-  top: 25px;
+  top: 40px;
   left: 50px;
   position: absolute;
   padding: 25px 0;
